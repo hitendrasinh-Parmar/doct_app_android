@@ -12,6 +12,10 @@ const HomeTabsNavigator = (): React.ReactElement => {
                 name={TabsRoutes.Profile}
                 component={ProfileNavigator}
             />
+            <TabsStack.Screen
+                name={TabsRoutes.Settings}
+                component={ProfileNavigator}
+            />
         </TabsStack.Navigator>
     )
 }
