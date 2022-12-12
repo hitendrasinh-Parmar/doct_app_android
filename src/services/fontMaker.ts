@@ -1,13 +1,13 @@
 import { Platform } from "react-native"
 
 const font = {
-    OpenSans: {
+    Poppins: {
         weights: {
             ExtraBold: '800',
             Bold: '700',
-            SemiBold: '600',
+            Medium: '600',
             Light: '300',
-            Normal: '400'
+            Regular: '400'
         },
         styles: {
             Italic: 'italic'
@@ -16,28 +16,27 @@ const font = {
 }
 
 // generate styles for a font with given weight and style
-export const fontMaker = (options = {}) => {
+export const fontMaker = (options: any = {}) => {
     let { weight, style, family } = Object.assign({
         weight: null,
         style: null,
-        family: 'OpenSans'
+        family: 'Poppins'
     }, options)
 
     const { weights, styles } = font[family]
 
     if (Platform.OS === 'android') {
-        weight = weights[weight] ? weight : null
-        style = styles[style] ? style : null
-        let suffix;
-        if (weight && style) {
-            suffix = weight + style
-        }
+        weight = weights[weight] ? weight : ''
+        style = styles[style] ? style : ''
+
+        const suffix = weight + style
+        console.log(family + (suffix && suffix.length ? `-${suffix}` : ''));
 
         return {
-            fontFamily: family + (suffix.length ? `-${suffix}` : '')
+            fontFamily: family + (suffix && suffix.length ? `-${suffix}` : '')
         }
     } else {
-        weight = weights[weight] || weights.Normal
+        weight = weights[weight] || weights.Regular
         style = styles[style] || 'normal'
 
         return {

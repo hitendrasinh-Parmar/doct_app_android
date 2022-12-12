@@ -1,5 +1,6 @@
 import { StyleSheet, Platform, Dimensions } from 'react-native';
 import { hp, wp, normalize } from '../services/ResponsiveDesign';
+import { fontMaker } from '../services/fontMaker';
 const WIDTH = Dimensions.get('window').width;
 export default StyleSheet.create({
     flex0: {
@@ -89,6 +90,41 @@ export default StyleSheet.create({
     },
     overflowHidden: {
         overflow: 'hidden',
+    },
+
+    fontPoppinsLight: {
+        ...fontMaker({ family: 'Poppins', weight: 'Light' }),
+    },
+    fontPoppinsLightItalic: {
+        ...fontMaker({ family: 'Poppins', weight: 'Light', style: 'Italic' }),
+    },
+
+    fontPoppinsRegular: {
+        ...fontMaker({ family: 'Poppins', weight: 'Regular' }),
+    },
+    fontPoppinsRegularItalic: {
+        ...fontMaker({ family: 'Poppins', weight: 'Regular', style: 'Italic' }),
+    },
+
+    fontPoppinsMedium: {
+        ...fontMaker({ family: 'Poppins', weight: 'Medium' }),
+    },
+    fontPoppinsMediumItalic: {
+        ...fontMaker({ family: 'Poppins', weight: 'Medium', style: 'Italic' }),
+    },
+    fontPoppinsBold: {
+        ...fontMaker({ family: 'Poppins', weight: 'Bold' }),
+    },
+    fontPoppinsBoldItalic: {
+        ...fontMaker({ family: 'Poppins', weight: 'Bold', style: 'Italic' }),
+    },
+
+    fontPoppinsExtraBold: {
+        ...fontMaker({ family: 'Poppins', weight: 'ExtraBold' }),
+    },
+    fontPoppinsExtraBoldItalic: {
+        ...fontMaker({ family: 'Poppins', weight: 'ExtraBold', style: 'Italic' }),
+
     },
     font8: {
         fontSize: normalize(8),
@@ -606,46 +642,5 @@ export default StyleSheet.create({
     },
     borderWidth4: {
         borderWidth: wp(4),
-    },
-    borderT0: {
-        borderTopWidth: 0,
-    },
-    border0: {
-        borderWidth: 0,
-    },
-    borderB1: {
-        borderBottomWidth: 1,
-    },
-    borderR0: {
-        borderRadius: 0,
-    },
-    inputText: {
-        textDecorationLine: 'none',
-        borderWidth: 0,
-    },
-    TextWidth: {
-        minWidth: WIDTH / 2 - wp(33),
-    },
-    InputWidth: {
-        minWidth: WIDTH / 2 - wp(30),
-    },
-    InputWidthTab: {
-        minWidth: WIDTH / 2 - wp(120),
-    },
-    zIndex30: {
-        zIndex: 30,
-    },
-    uploadImg: {
-        top: 45,
-        right: 15,
-    },
-    zIndex10: {
-        zIndex: 10,
-    },
-    zIndex20: {
-        zIndex: 20,
-    },
-    zIndex40: {
-        zIndex: 40,
     },
 });

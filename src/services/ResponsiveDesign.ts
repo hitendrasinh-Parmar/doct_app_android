@@ -5,9 +5,9 @@ let screenWidth = Dimensions.get('window').width;
 // Retrieve initial screen's height
 let screenHeight = Dimensions.get('window').height;
 
-let tabDimensions = { w: 00, h: 00 };
+let tabDimensions = { w: 774, h: 1133 };
 
-let mobDimensions = { w: 00, h: 00 };
+let mobDimensions = { w: 390, h: 844 };
 
 let whSW = screenWidth > 500 ? tabDimensions.w : mobDimensions.w;
 
