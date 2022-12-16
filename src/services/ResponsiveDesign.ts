@@ -1,20 +1,20 @@
-import { Dimensions, PixelRatio, Platform } from 'react-native';
+import { Dimensions, PixelRatio } from 'react-native';
 // Retrieve initial screen's width
 let screenWidth = Dimensions.get('window').width;
 
 // Retrieve initial screen's height
 let screenHeight = Dimensions.get('window').height;
 
-let tabDimensions = { w: 774, h: 1133 };
+const tabDimensions = { w: 774, h: 1133 };
 
-let mobDimensions = { w: 390, h: 844 };
+const mobDimensions = { w: 390, h: 844 };
 
-let whSW = screenWidth > 500 ? tabDimensions.w : mobDimensions.w;
+const whSW = screenWidth > 500 ? tabDimensions.w : mobDimensions.w;
 
-let hpSH = screenWidth > 500 ? tabDimensions.h : mobDimensions.h;
+const hpSH = screenWidth > 500 ? tabDimensions.h : mobDimensions.h;
 
 const scale = screenWidth / whSW;
-const normalize = (size) => {
+const normalize = (size: number) => {
   const newSize = size * scale;
   return Math.round(PixelRatio.roundToNearestPixel(newSize));
 };
@@ -25,7 +25,7 @@ const normalize = (size) => {
  * along with the percentage symbol (%).
  * @return {number} The calculated dp depending on current device's screen width.
  */
-const widthPercentageToDP = (widthPercent) => {
+const widthPercentageToDP = (widthPercent: number | string) => {
   // Parse string percentage input and convert it to number.
   const elemWidth = typeof widthPercent === 'number' ? widthPercent : parseFloat(widthPercent);
 
@@ -40,7 +40,7 @@ const widthPercentageToDP = (widthPercent) => {
  * along with the percentage symbol (%).
  * @return {number} The calculated dp depending on current device's screen height.
  */
-const heightPercentageToDP = (heightPercent) => {
+const heightPercentageToDP = (heightPercent: number | string) => {
   // Parse string percentage input and convert it to number.
   const elemHeight = typeof heightPercent === 'number' ? heightPercent : parseFloat(heightPercent);
 
@@ -58,13 +58,14 @@ const heightPercentageToDP = (heightPercent) => {
  * @param {object} that Screen's class component this variable. The function needs it to
  * invoke setState method and trigger screen rerender (this.setState()).
  */
-const listenOrientationChange = (that) => {
+const listenOrientationChange = (that: any) => {
   Dimensions.addEventListener('change', (newDimensions) => {
     // Retrieve and save new dimensions
     screenWidth = newDimensions.window.width;
     screenHeight = newDimensions.window.height;
 
     // Trigger screen's rerender with a state update of the orientation variable
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-call
     that.setState({
       orientation: screenWidth < screenHeight ? 'portrait' : 'landscape',
     });
@@ -78,6 +79,7 @@ const listenOrientationChange = (that) => {
  * avoid adding new listeners every time the same component is re-mounted.
  */
 const removeOrientationListener = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-call
   Dimensions?.removeEventListener('change', () => {});
 };
 
@@ -88,7 +90,7 @@ const removeOrientationListener = () => {
  * @param dimension directly taken from design wireframes
  * @returns {string} percentage string e.g. '25%'
  */
-const wp = (dimension) => widthPercentageToDP(`${(dimension / whSW) * 100}%`);
+const wp = (dimension: number | string) => widthPercentageToDP(`${(dimension / whSW) * 100}%`);
 
 /**
  * Height-Percentage
@@ -97,6 +99,6 @@ const wp = (dimension) => widthPercentageToDP(`${(dimension / whSW) * 100}%`);
  * @param dimension directly taken from design wireframes
  * @returns {string} percentage string e.g. '25%'
  */
-const hp = (dimension) => heightPercentageToDP(`${(dimension / hpSH) * 100}%`);
+const hp = (dimension: number | string) => heightPercentageToDP(`${(dimension / hpSH) * 100}%`);
 
 export { wp, hp, normalize, listenOrientationChange, removeOrientationListener };

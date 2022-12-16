@@ -16,8 +16,8 @@ const font = {
 };
 
 // generate styles for a font with given weight and style
-export const fontMaker = (options: any = {}) => {
-  let { weight, style, family } = Object.assign(
+export const fontMaker = (options = {}) => {
+  const { weight, style, family } = Object.assign(
     {
       weight: null,
       style: null,
@@ -26,6 +26,7 @@ export const fontMaker = (options: any = {}) => {
     options,
   );
 
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { weights, styles } = font[family];
 
   if (Platform.OS === 'android') {
