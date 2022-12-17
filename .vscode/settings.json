@@ -1,1 +1,9 @@
-{}
+{
+    "java.compile.nullAnalysis.mode": "disabled",
+    "editor.formatOnSave": true,
+    "prettier.semi": false,
+    "prettier.singleQuote": true,
+    "prettier.endOfLine": "lf",
+    "prettier.useEditorConfig": false,
+    "typescript.tsdk": "node_modules\\typescript\\lib"
+}
