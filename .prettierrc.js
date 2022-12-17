@@ -1,6 +1,5 @@
-{
-  "singleQuote"= true,
-  "trailingComma"="none",
-  "tabWidth"= 2,
-  "semi"=true
-}
+module.exports = {
+  singleQuote: true,
+  trailingComma: 'all',
+  printWidth: 100,
+};

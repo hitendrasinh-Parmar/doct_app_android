@@ -1,8 +1,3 @@
-/* eslint-disable @typescript-eslint/restrict-plus-operands */
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-/* eslint-disable prefer-const */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import { Platform } from 'react-native';
 
 const font = {
@@ -22,7 +17,7 @@ const font = {
 
 // generate styles for a font with given weight and style
 export const fontMaker = (options = {}) => {
-  let { weight, style, family } = Object.assign(
+  const { weight, style, family } = Object.assign(
     {
       weight: null,
       style: null,
@@ -35,16 +30,15 @@ export const fontMaker = (options = {}) => {
   const { weights, styles } = font[family];
 
   if (Platform.OS === 'android') {
-    weight = weights[weight] ? weight : null;
-    style = styles[style] ? style : null;
-    if (weight && style) {
-      const suffix = weight + style;
-      console.log(family + (suffix && suffix?.length ? `-${suffix}` : ''));
+    weight = weights[weight] ? weight : '';
+    style = styles[style] ? style : '';
 
-      return {
-        fontFamily: family + (suffix && suffix?.length ? `-${suffix}` : ''),
-      };
-    }
+    const suffix = weight + style;
+    console.log(family + (suffix && suffix.length ? `-${suffix}` : ''));
+
+    return {
+      fontFamily: family + (suffix && suffix.length ? `-${suffix}` : ''),
+    };
   } else {
     weight = weights[weight] || weights.Regular;
     style = styles[style] || 'normal';
