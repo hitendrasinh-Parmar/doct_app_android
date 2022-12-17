@@ -1,17 +1,9 @@
 import React from 'react';
-import { Text } from 'react-native';
-import { fontMaker } from '../../services/fontMaker';
-import df from '../../styles/df';
+import { Text, View } from 'react-native';
+import df from '../../styles/Styles';
+
 const SignIn = () => {
-  console.log('item');
-
-  console.log(fontMaker({ family: 'Poppins', weight: 'ExtraBold', style: 'Italic' }));
-
-  return (
-    <>
-      <Text style={[df.font28, df.fontPoppinsBold]}>SignIn</Text>
-    </>
-  );
+  return <View style={[df.flex1]}></View>;
 };
 
 export default SignIn;
