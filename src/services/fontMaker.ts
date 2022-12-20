@@ -17,10 +17,11 @@ const font = {
 
 // generate styles for a font with given weight and style
 export const fontMaker = (options = {}) => {
-  const { weight, style, family } = Object.assign(
+  // eslint-disable-next-line prefer-const
+  let { weight, style, family } = Object.assign(
     {
-      weight: null,
-      style: null,
+      weight: '',
+      style: '',
       family: 'Poppins',
     },
     options,
@@ -40,7 +41,9 @@ export const fontMaker = (options = {}) => {
       fontFamily: family + (suffix && suffix.length ? `-${suffix}` : ''),
     };
   } else {
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     weight = weights[weight] || weights.Regular;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     style = styles[style] || 'normal';
 
     return {

@@ -29,6 +29,7 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     'react/display-name': 'off',
     'react/prop-types': 'off',
+    '@typescript-eslint/no-unsafe-member-access': 'off',
     semi: ['error', 'always'],
   },
   settings: {

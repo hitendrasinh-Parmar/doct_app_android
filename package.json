@@ -7,8 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint --ext .tsx --ext .ts src/",
-    "format": "prettier --check ./src",
+    "lint": "eslint --ignore-path .eslintignore  --ext .tsx --ext .ts src/",
+    "format": "prettier --ignore-path .gitignore  --check ./src",
     "prepare": "husky install",
     "prettier:write": "npx prettier --write **/*.{js,jsx,ts,tsx,json} && npx prettier --write *.{js,jsx,ts,tsx,json}"
   },
@@ -49,7 +49,9 @@
     "lint-staged": "^13.1.0",
     "metro-react-native-babel-preset": "0.72.3",
     "prettier": "^2.8.1",
-    "react-test-renderer": "18.1.0"
+    "react-test-renderer": "18.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react-hooks": "^4.6.0"
   },
   "jest": {
     "preset": "react-native"
@@ -59,7 +61,7 @@
       "eslint --ext .tsx --ext .ts src/ --fix"
     ],
     "./src/**": [
-      "prettier --write ."
+      "prettier --write \"**/*.+(js|ts|json)\""
     ]
   },
   "husky": {
