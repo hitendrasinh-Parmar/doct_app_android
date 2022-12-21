@@ -1,9 +1,22 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import df from '../../styles/Styles';
-
+import { View, Text } from 'react-native';
+import useTheme from '../../theme/useTheme';
 const SignIn = () => {
-  return <View style={[df.flex1]}></View>;
+  console.log('[SignIn]');
+
+  // const style = useThemedStyles(styles);
+
+  const _tm = useTheme();
+  return (
+    <View style={[_tm.flex1]}>
+      <Text>SignIn</Text>
+    </View>
+  );
 };
+
+// const styles = (theme: themeKeys) =>
+//   StyleSheet.create({
+//     container: theme.flex1,
+//   });
 
 export default SignIn;

@@ -1,6 +1,20 @@
 import { Platform } from 'react-native';
 
-const font = {
+interface fontStyles {
+  Poppins: {
+    weights: {
+      ExtraBold: string;
+      Bold: string;
+      Medium: string;
+      Light: string;
+      Regular: string;
+    };
+    styles: {
+      Italic: string;
+    };
+  };
+}
+const font: fontStyles = {
   Poppins: {
     weights: {
       ExtraBold: '800',
@@ -16,7 +30,7 @@ const font = {
 };
 
 // generate styles for a font with given weight and style
-export const fontMaker = (options = {}) => {
+export const fontMaker = (options = {}): any => {
   // eslint-disable-next-line prefer-const
   let { weight, style, family } = Object.assign(
     {

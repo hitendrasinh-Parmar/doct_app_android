@@ -1,15 +1,14 @@
 import React from 'react';
-import { Colors } from './Colors';
+import { Colors } from './colors';
 import Styles from '../styles/Styles';
+import { themeKeys, ThemeProviderType } from '../types/global';
 
-export const ThemeContext = React.createContext({});
+export const ThemeContext = React.createContext<themeKeys | null>(null);
 
-const ThemeProvider = ({ children }: any) => {
-  const isLightTheam = true;
-
-  const theme = {
-    Styles,
-    Colors,
+const ThemeProvider = ({ children }: ThemeProviderType) => {
+  const theme: themeKeys = {
+    ...Styles,
+    ...Colors,
   };
 
   return <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>;

@@ -30,6 +30,7 @@ module.exports = {
     'react/display-name': 'off',
     'react/prop-types': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
     semi: ['error', 'always'],
   },
   settings: {
