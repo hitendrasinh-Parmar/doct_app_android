@@ -1,6 +1,7 @@
 import { StyleSheet, Platform, Dimensions } from 'react-native';
 import { hp, wp, normalize } from '../services/ResponsiveDesign';
 import { fontMaker } from '../services/fontMaker';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 const WIDTH = Dimensions.get('window').width;
 export default StyleSheet.create({
   flex0: {
@@ -641,5 +642,11 @@ export default StyleSheet.create({
   },
   borderWidth4: {
     borderWidth: wp(4),
+  },
+  fontBlack: {
+    color: Colors.black,
+  },
+  fontGray: {
+    color: Colors.gray,
   },
 });

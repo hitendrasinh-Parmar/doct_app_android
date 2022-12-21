@@ -1,15 +1,33 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import useTheme from '../../theme/useTheme';
+import Button from '../../components/buttons/Button';
 const SignIn = () => {
   console.log('[SignIn]');
 
   // const style = useThemedStyles(styles);
 
-  const _tm = useTheme();
+  const style = useTheme();
+
   return (
-    <View style={[_tm.flex1]}>
-      <Text>SignIn</Text>
+    <View style={[style.flex1]}>
+      <View style={[style.paddingT100, style.alignJustifyCenter]}>
+        <Text style={[style.font24, style.fontPoppinsBold, style.fontBlack]}>
+          Join us to start searching
+        </Text>
+        <Text
+          style={[
+            style.font14,
+            style.fontPoppinsRegular,
+            style.fontGray,
+            style.flexWrap,
+            style.textCenter,
+          ]}
+        >
+          You can search course, apply course and find scholarship for abroad studies
+        </Text>
+      </View>
+      <Button />
     </View>
   );
 };
