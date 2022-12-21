@@ -649,4 +649,7 @@ export default StyleSheet.create({
   fontGray: {
     color: Colors.gray,
   },
+  borderGray2: {
+    borderColor: Colors.gray2,
+  },
 });

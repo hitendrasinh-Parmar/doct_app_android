@@ -27,7 +27,10 @@ const SignIn = () => {
           You can search course, apply course and find scholarship for abroad studies
         </Text>
       </View>
-      <Button />
+      <View style={[style.flexRow]}>
+        <Button text={'Google'} onPress={() => {}} />
+        <Button text="Facebook" />
+      </View>
     </View>
   );
 };
