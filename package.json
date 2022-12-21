@@ -61,7 +61,7 @@
       "eslint --ext .tsx --ext .ts src/ --fix"
     ],
     "./src/**": [
-      "prettier --write \"**/*.+(js|ts|json|tsx)\""
+      "prettier --write ."
     ]
   },
   "husky": {
