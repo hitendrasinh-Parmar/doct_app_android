@@ -2,7 +2,7 @@ import React from 'react';
 import { Text } from 'react-native';
 
 const ProfileNavigator = () => {
-  console.log('[ProfileNavigator]');
+  // console.log('[ProfileNavigator]');
 
   return (
     <>

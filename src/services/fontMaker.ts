@@ -38,7 +38,7 @@ export const fontMaker = (options = {}): any => {
       style: '',
       family: 'Poppins',
     },
-    options,
+    options
   );
 
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -49,7 +49,7 @@ export const fontMaker = (options = {}): any => {
     style = styles[style] ? style : '';
 
     const suffix = weight + style;
-    console.log(family + (suffix && suffix.length ? `-${suffix}` : ''));
+    // console.log(family + (suffix && suffix.length ? `-${suffix}` : ''));
 
     return {
       fontFamily: family + (suffix && suffix.length ? `-${suffix}` : ''),

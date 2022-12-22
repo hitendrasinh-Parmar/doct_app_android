@@ -1,7 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text } from 'react-native';
-import useTheme from '../../theme/useTheme';
-import { themeKeys } from '../../types/global';
+import useStyles from '../../styles/useStyles';
 
 interface ButtonInterface {
   text: string;
@@ -9,20 +8,19 @@ interface ButtonInterface {
   buttonStyles?: [];
 }
 const Button = (props: ButtonInterface) => {
-  const style = useTheme();
+  const styles = useStyles();
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       style={[
-        style.flex1,
-        style.paddingV10,
-        style.borderWidth1,
-        style.borderGray2,
+        styles.flex1,
+        styles.paddingV10,
+        styles.borderWidth1,
+        styles.borderGray2,
         !!props?.buttonStyles && props.buttonStyles,
       ]}
-      onPress={props.onPress}
-    >
-      <Text style={[style.font14, style.fontPoppinsRegular, style.fontGray, style.textCenter]}>
+      onPress={props.onPress}>
+      <Text style={[styles.font14, styles.fontPoppinsRegular, styles.fontGray, styles.textCenter]}>
         Google
       </Text>
     </TouchableOpacity>
