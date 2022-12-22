@@ -7,8 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint --ignore-path .eslintignore  --ext .tsx --ext .ts src/",
-    "format": "prettier --ignore-path .gitignore  --check ./src",
+    "lint": "eslint --ignore-path .eslintignore --ext .tsx --ext .ts src/",
+    "format": "prettier --ignore-path .gitignore --check ./src",
     "prepare": "husky install",
     "prettier:write": "npx prettier --write **/*.{js,jsx,ts,tsx,json} && npx prettier --write *.{js,jsx,ts,tsx,json}"
   },
@@ -61,7 +61,7 @@
       "eslint --ext .tsx --ext .ts src/ --fix"
     ],
     "./src/**": [
-      "prettier --write \"**/*.+(js|ts|json)\""
+      "prettier --write ."
     ]
   },
   "husky": {
