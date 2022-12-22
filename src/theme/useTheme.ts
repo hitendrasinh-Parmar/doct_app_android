@@ -1,9 +1,9 @@
 import { useContext } from 'react';
-import { themeKeys } from '../types/global';
+import { themeType } from '../types/global';
 import { ThemeContext } from './ThemeProvider';
 
 const useTheme = () => {
-  return useContext(ThemeContext) as themeKeys;
+  return useContext(ThemeContext) as themeType;
 };
 
 export default useTheme;

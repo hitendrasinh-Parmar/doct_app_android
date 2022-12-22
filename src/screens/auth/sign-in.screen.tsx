@@ -1,22 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import useTheme from '../../theme/useTheme';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { Colors } from '../../theme/colors';
+import { useTheme } from '../../theme/ThemeProvider';
+
 const SignIn = () => {
   console.log('[SignIn]');
-
-  // const style = useThemedStyles(styles);
-
-  const _tm = useTheme();
+  const {theme , toggleTheme} = useTheme()
   return (
-    <View style={[_tm.flex1]}>
-      <Text>SignIn</Text>
+    <View style={[{flex:1, backgroundColor: theme.primary}]}>
+      <TouchableOpacity onPress={()=>{
+        toggleTheme()
+      }}>
+        <Text>SignIn</Text>
+      </TouchableOpacity>
     </View>
   );
 };
-
-// const styles = (theme: themeKeys) =>
-//   StyleSheet.create({
-//     container: theme.flex1,
-//   });
 
 export default SignIn;
