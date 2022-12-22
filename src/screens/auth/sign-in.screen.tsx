@@ -1,43 +1,20 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
-import useTheme from '../../theme/useTheme';
-import Button from '../../components/buttons/Button';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { Colors } from '../../theme/colors';
+import { useTheme } from '../../theme/ThemeProvider';
+
 const SignIn = () => {
   console.log('[SignIn]');
-
-  // const style = useThemedStyles(styles);
-
-  const style = useTheme();
-
+  const {theme , toggleTheme} = useTheme()
   return (
-    <View style={[style.flex1]}>
-      <View style={[style.paddingT100, style.alignJustifyCenter]}>
-        <Text style={[style.font24, style.fontPoppinsBold, style.fontBlack]}>
-          Join us to start searching
-        </Text>
-        <Text
-          style={[
-            style.font14,
-            style.fontPoppinsRegular,
-            style.fontGray,
-            style.flexWrap,
-            style.textCenter,
-          ]}
-        >
-          You can search course, apply course and find scholarship for abroad studies
-        </Text>
-      </View>
-      <View style={[style.flexRow]}>
-        <Button text={'Google'} onPress={() => {}} />
-        <Button text="Facebook" />
-      </View>
+    <View style={[{flex:1, backgroundColor: theme.primary}]}>
+      <TouchableOpacity onPress={()=>{
+        toggleTheme()
+      }}>
+        <Text>SignIn</Text>
+      </TouchableOpacity>
     </View>
   );
 };
-
-// const styles = (theme: themeKeys) =>
-//   StyleSheet.create({
-//     container: theme.flex1,
-//   });
 
 export default SignIn;
