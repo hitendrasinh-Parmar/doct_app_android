@@ -7,6 +7,7 @@ interface ButtonInterface {
   onPress?: () => void;
   buttonStyles?: [];
 }
+
 const Button = (props: ButtonInterface) => {
   const styles = useStyles();
   return (

@@ -1,28 +1,27 @@
-import React, { useContext, useState } from 'react';
-import { Colors } from './colors';
-import Styles from '../styles/useStyles';
-import { themeType, ThemeProviderType } from '../types/global';
+import React, { ReactNode, useContext, useState } from 'react';
+import { darkTheme, lightTheme } from './colors';
+import { themeType, ThemeProviderType, ColorsInterface } from '../types/global';
 
 const initialState = {
-  theme: Colors[0],
+  theme: lightTheme,
   toggleTheme: () => {},
 };
 
 export const ThemeContext = React.createContext<themeType>(initialState);
 
 const ThemeProvider = ({ children }: any) => {
-  const [theme, setTheme] = useState<any>(Colors[0]);
+  const [theme, setTheme] = useState<ColorsInterface>(lightTheme);
+
   const toggleTheme = () => {
-    if (theme == Colors[0]) {
-      setTheme(Colors[1]);
+    if (theme === lightTheme) {
+      setTheme(darkTheme);
     } else {
-      setTheme(Colors[0]);
+      setTheme(lightTheme);
     }
   };
+
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };
-
-export default ThemeProvider;
 
 export const useTheme = () => {
   const context = useContext(ThemeContext);
@@ -32,3 +31,5 @@ export const useTheme = () => {
   }
   return context;
 };
+
+export default ThemeProvider;

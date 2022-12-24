@@ -2,8 +2,9 @@ import { StyleSheet } from 'react-native';
 import { hp, wp, normalize } from '../services/ResponsiveDesign';
 import { fontMaker } from '../services/fontMaker';
 import { useTheme } from '../theme/ThemeProvider';
+import { ColorsInterface } from '../types/global';
 const useStyles = () => {
-  const { theme } = useTheme();
+  const { theme }: { theme: ColorsInterface } = useTheme();
   return StyleSheet.create({
     flex0: {
       flex: 0,
@@ -652,6 +653,13 @@ const useStyles = () => {
     },
     borderGray2: {
       borderColor: theme.gray2,
+    },
+    borderView: {
+      borderWidth: 1,
+      borderColor: theme.gray2,
+    },
+    placeHolderBlack: {
+      color: theme.black,
     },
   });
 };
