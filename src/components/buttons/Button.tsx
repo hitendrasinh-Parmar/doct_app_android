@@ -1,7 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { getColor } from '../../services/utils';
+import Styles from '../../styles/Styles';
+import { ThemeContext } from '../../theme/ThemeProvider';
 import useTheme from '../../theme/useTheme';
-import { themeKeys } from '../../types/global';
 
 interface ButtonInterface {
   text: string;
@@ -9,24 +11,31 @@ interface ButtonInterface {
   buttonStyles?: [];
 }
 const Button = (props: ButtonInterface) => {
-  const style = useTheme();
+  const { theme } = useTheme();
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       style={[
-        style.flex1,
-        style.paddingV10,
-        style.borderWidth1,
-        style.borderGray2,
+        Styles.flex1,
+        Styles.paddingV10,
+        Styles.borderWidth1,
+        Styles.borderGray2,
         !!props?.buttonStyles && props.buttonStyles,
+        {backgroundColor: theme.btnPrimary}
       ]}
       onPress={props.onPress}
     >
-      <Text style={[style.font14, style.fontPoppinsRegular, style.fontGray, style.textCenter]}>
-        Google
+      <Text style={[Styles.font14, Styles.fontPoppinsRegular, Styles.fontGray, Styles.textCenter]}>
+        Button
       </Text>
     </TouchableOpacity>
   );
 };
 
 export default Button;
+
+const styles = StyleSheet.create({
+  // btnBg: {
+  //   backgroundColor: getColor('btnPrimary'),
+  // }
+})
