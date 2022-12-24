@@ -34,7 +34,7 @@ const Button = (props: ButtonInterface) => {
       ]}>
       <TouchableOpacity {...props} activeOpacity={0.8} style={[]} onPress={onPress}>
         <Text
-          style={[__s.font16, __s.fontPoppinsRegular, __s.fontGray, __s.textCenter, ...textStyle]}>
+          style={[__s.font16, __s.fontPoppinsMedium, __s.fontGray, __s.textCenter, ...textStyle]}>
           {text}
         </Text>
       </TouchableOpacity>

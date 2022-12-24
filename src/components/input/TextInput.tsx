@@ -10,7 +10,6 @@ import {
   Image,
   TextStyle,
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import useStyles from '../../styles/useStyles';
 import { useTheme } from '../../theme/ThemeProvider';
 import { ColorsInterface, themeType } from '../../types/global';
@@ -49,7 +48,7 @@ const TextInputCustom: React.FC<TextInputProps> = (props): JSX.Element => {
       {
         translateY: focusAnim.interpolate({
           inputRange: [0, 1],
-          outputRange: [0, -20],
+          outputRange: [0, -15],
         }),
       },
       {
@@ -85,15 +84,18 @@ const TextInputCustom: React.FC<TextInputProps> = (props): JSX.Element => {
         __s.posr,
         __s.flexRow,
         __s.alignCenter,
+        (isFocused || !!props?.value) && __s.borderGreen,
         iconPosition === 'left' ? [__s.flexRowReverse, __s.paddingR10] : [],
       ]}>
       <Animated.View style={[__s.posa, __s.paddingH5, textWrapperDefault, ...textWrapper]}>
         {placeholderText && (
           <Text
             style={[
+              __s.fontPoppinsRegular,
               __s.fontGray,
               __s.font16,
               ...textStyle,
+              (isFocused || !!props?.value) && __s.fontGreen,
               iconPosition === 'left' && [__s.paddingR16],
             ]}>
             {placeholderText}

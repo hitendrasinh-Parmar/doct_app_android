@@ -5,7 +5,6 @@ import { useTheme } from '../theme/ThemeProvider';
 import { ColorsInterface } from '../types/global';
 const useStyles = () => {
   const { theme }: { theme: ColorsInterface } = useTheme();
-  console.log('[useStyles]', theme);
 
   return StyleSheet.create({
     flex0: {
@@ -537,6 +536,9 @@ const useStyles = () => {
     borderRadius4: {
       borderRadius: 4,
     },
+    borderRadius10: {
+      borderRadius: 10,
+    },
     borderRadiusT4: {
       borderTopRightRadius: 4,
       borderTopLeftRadius: 4,
@@ -659,14 +661,20 @@ const useStyles = () => {
     fontGray: {
       color: theme.gray,
     },
+    fontGreen: {
+      color: theme.green,
+    },
     fontWhite: {
       color: theme.white,
     },
     borderGray2: {
       borderColor: theme.gray2,
     },
+    borderGreen: {
+      borderColor: theme.green,
+    },
     borderView: {
-      borderWidth: 1,
+      borderWidth: 2,
       borderColor: theme.gray2,
     },
     placeHolderBlack: {
@@ -674,6 +682,9 @@ const useStyles = () => {
     },
     bgColorGreen: {
       backgroundColor: theme.green,
+    },
+    bgColorlightBlue: {
+      backgroundColor: theme.gray2,
     },
   });
 };

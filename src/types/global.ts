@@ -27,4 +27,5 @@ export type ColorsInterface = {
   gray?: string;
   gray2?: string;
   green?: string;
+  lightBlue?: string;
 };

@@ -11,4 +11,5 @@ export const lightTheme: ColorsInterface = {
   green: '#0EBE7F',
   gray: '#677294', //font
   gray2: 'rgba(103, 114, 148, 0.16)', // border,
+  lightBlue: '#61CEFF',
 };
