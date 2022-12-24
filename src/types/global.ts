@@ -19,10 +19,12 @@ export type themeType = {
   toggleTheme: any;
 };
 
-export type ColorsInterface = ColorValue & {
+//  ColorValue &
+export type ColorsInterface = {
   primary?: string;
   black?: string;
   white?: string;
   gray?: string;
   gray2?: string;
+  green?: string;
 };

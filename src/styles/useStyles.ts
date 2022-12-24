@@ -5,6 +5,8 @@ import { useTheme } from '../theme/ThemeProvider';
 import { ColorsInterface } from '../types/global';
 const useStyles = () => {
   const { theme }: { theme: ColorsInterface } = useTheme();
+  console.log('[useStyles]', theme);
+
   return StyleSheet.create({
     flex0: {
       flex: 0,
@@ -325,6 +327,9 @@ const useStyles = () => {
     paddingH12: {
       paddingHorizontal: wp(12),
     },
+    paddingH5: {
+      paddingHorizontal: wp(5),
+    },
     paddingH16: {
       paddingHorizontal: wp(16),
     },
@@ -505,6 +510,9 @@ const useStyles = () => {
     paddingR11: {
       paddingRight: wp(11),
     },
+    paddingR10: {
+      paddingRight: wp(10),
+    },
     lineHeight30: {
       // lineHeight: 30,
     },
@@ -651,6 +659,9 @@ const useStyles = () => {
     fontGray: {
       color: theme.gray,
     },
+    fontWhite: {
+      color: theme.white,
+    },
     borderGray2: {
       borderColor: theme.gray2,
     },
@@ -660,6 +671,9 @@ const useStyles = () => {
     },
     placeHolderBlack: {
       color: theme.black,
+    },
+    bgColorGreen: {
+      backgroundColor: theme.green,
     },
   });
 };
