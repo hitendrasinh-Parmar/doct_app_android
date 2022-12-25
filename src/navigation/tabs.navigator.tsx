@@ -27,7 +27,7 @@ const HomeTabsNavigator = (): React.ReactElement => {
             <ImageCustom imgUrl={AppIcons.home} wrapperStyle={[]} />
           </View>
           {currentIndex === 0 && __s.bgColorGray2 && (
-            <View style={[__s.paddingV3, { backgroundColor: 'white' }]} />
+            <View style={[__s.paddingV3, __s.bgColorWhite]} />
           )}
         </TouchableOpacity>
 
@@ -38,7 +38,7 @@ const HomeTabsNavigator = (): React.ReactElement => {
             <ImageCustom imgUrl={AppIcons.heart} />
           </View>
           {currentIndex === 1 && __s.bgColorGray2 && (
-            <View style={[__s.paddingV3, { backgroundColor: 'white' }]} />
+            <View style={[__s.paddingV3, __s.bgColorWhite]} />
           )}
         </TouchableOpacity>
 
@@ -49,7 +49,7 @@ const HomeTabsNavigator = (): React.ReactElement => {
             <ImageCustom imgUrl={AppIcons.blog} />
           </View>
           {currentIndex === 2 && __s.bgColorGray2 && (
-            <View style={[__s.paddingV3, { backgroundColor: 'white' }]} />
+            <View style={[__s.paddingV3, __s.bgColorWhite]} />
           )}
         </TouchableOpacity>
 
@@ -60,7 +60,7 @@ const HomeTabsNavigator = (): React.ReactElement => {
             <ImageCustom imgUrl={AppIcons.chat} />
           </View>
           {currentIndex === 3 && __s.bgColorGray2 && (
-            <View style={[__s.paddingV3, { backgroundColor: 'white' }]} />
+            <View style={[__s.paddingV3, __s.bgColorWhite]} />
           )}
         </TouchableOpacity>
       </View>

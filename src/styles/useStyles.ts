@@ -693,6 +693,9 @@ const useStyles = () => {
     bgColorGray2: {
       backgroundColor: theme.gray2,
     },
+    bgColorWhite: {
+      backgroundColor: theme.white,
+    },
   });
 };
 
