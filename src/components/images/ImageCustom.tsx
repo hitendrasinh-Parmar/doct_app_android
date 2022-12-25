@@ -29,7 +29,7 @@ const ImageCustom = (props: ImageProps) => {
     <View style={[...wrapperStyle]}>
       <Image
         {...props}
-        style={[__s.height24, __s.width24, __s.ImgContain, __s.marginR10, ...imgStyle]}
+        style={[__s.height24, __s.width24, __s.ImgContain, ...imgStyle]}
         source={imgUrl}
       />
     </View>

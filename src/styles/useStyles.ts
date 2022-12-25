@@ -543,6 +543,10 @@ const useStyles = () => {
       borderTopRightRadius: 4,
       borderTopLeftRadius: 4,
     },
+    borderRadiusT10: {
+      borderTopRightRadius: 10,
+      borderTopLeftRadius: 10,
+    },
     borderRadiusB4: {
       borderBottomRightRadius: 4,
       borderBottomLeftRadius: 4,
@@ -684,6 +688,9 @@ const useStyles = () => {
       backgroundColor: theme.green,
     },
     bgColorlightBlue: {
+      backgroundColor: theme.gray2,
+    },
+    bgColorGray2: {
       backgroundColor: theme.gray2,
     },
   });

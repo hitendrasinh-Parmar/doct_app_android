@@ -117,7 +117,7 @@ const TextInputCustom: React.FC<TextInputProps> = (props): JSX.Element => {
           __s.font16,
         ]}
       />
-      {!!icon && <ImageCustom imgUrl={AppIcons?.hide_password} />}
+      {!!icon && <ImageCustom imgUrl={AppIcons?.hide_password} wrapperStyle={[__s.paddingR10]} />}
     </View>
   );
 };
