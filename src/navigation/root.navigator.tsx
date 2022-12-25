@@ -6,7 +6,7 @@ import AuthNavigator from './auth.navigator';
 import MainNavigator from './main.navigator';
 import { RootRoutes, RootStack } from './routes';
 
-const tempvalidUser = false;
+const tempvalidUser = true;
 
 const Root = () => {
   return (
