@@ -1,4 +1,4 @@
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import useTheme from '../../theme/useTheme';
@@ -14,6 +14,7 @@ import LocalImages from '../../../assets/images/index';
 import Styles from '../../styles/Styles';
 import { hp, wp } from '../../services/ResponsiveDesign';
 import Button from '../../components/buttons/Button';
+import useStyles from '../../styles/useStyles';
 const { height, width } = Dimensions.get('window');
 
 type dataType = {
@@ -26,7 +27,8 @@ type dataType = {
 };
 
 const renderItem = (props: dataType) => {
-  const { index, image, id, title, translateX } = props;
+  const { index, image, id, title, subTitle, translateX }: any = props;
+  const __s = useStyles();
   const rStyle = useAnimatedStyle(() => {
     const scale = interpolate(
       translateX.value,
@@ -42,33 +44,54 @@ const renderItem = (props: dataType) => {
     <View style={[{ width, backgroundColor: 'white' }]} key={props.id}>
       <Text>123</Text>
       <Animated.View
-        style={[styles.greenCircle, index && index % 2 !== 0 ? styles.rightGreen : styles.leftGreen, rStyle]}
-      ></Animated.View>
+        style={[
+          styles.greenCircle,
+          index && index % 2 !== 0 ? styles.rightGreen : styles.leftGreen,
+          rStyle,
+        ]}></Animated.View>
       <Image source={image} style={[styles.circle]}></Image>
+      <View style={[__s.alignJustifyCenter, __s.paddingV48]}>
+        <Text style={[__s.font28, __s.fontPoppinsBold, __s.fontBlack]}>{title}</Text>
+        <Text
+          style={[
+            __s.font14,
+            __s.textCenter,
+            __s.fontPoppinsRegular,
+            __s.fontBlack,
+            __s.paddingH35,
+            __s.fontGray,
+          ]}>
+          {subTitle}
+        </Text>
+      </View>
     </View>
   );
 };
 
 const Onboarding = () => {
-  const theme = useTheme();
   const { onboarding1, onboarding2, onboarding3 } = LocalImages;
+  const __s = useStyles();
+
   const data: dataType[] = [
     {
       id: 1,
-      title: 'One',
-      subTitle: '',
+      title: 'Find Trusted Doctors',
+      subTitle:
+        'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
       image: onboarding1,
     },
     {
       id: 2,
-      title: 'Two',
-      subTitle: '',
+      title: 'Choose Best Doctors',
+      subTitle:
+        'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
       image: onboarding2,
     },
     {
       id: 3,
-      title: 'Three',
-      subTitle: '',
+      title: 'Easy Appointments',
+      subTitle:
+        'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of it over 2000 years old.',
       image: onboarding3,
     },
   ];
@@ -80,12 +103,36 @@ const Onboarding = () => {
 
   return (
     <View style={[styles.container]}>
-      <Animated.ScrollView pagingEnabled horizontal onScroll={scrollHandler} scrollEventThrottle={16}>
+      <Animated.ScrollView
+        pagingEnabled
+        horizontal
+        onScroll={scrollHandler}
+        scrollEventThrottle={16}>
         {data.map((item, index) => {
           return <>{renderItem({ ...item, index, translateX })}</>;
         })}
       </Animated.ScrollView>
-      <Button text='Get Started' onPress={()=>{ console.log('button')}} />
+      <View style={[__s.paddingH24]}>
+        <Button
+          text='Get Started'
+          onPress={() => {}}
+          buttonStyles={[__s.bgColorGreen, __s.borderRadius10]}
+          textStyle={[__s.fontWhite]}
+        />
+        <TouchableOpacity>
+          <Text
+            style={[
+              __s.font14,
+              __s.fontPoppinsRegular,
+              __s.fontGray,
+              __s.flexWrap,
+              __s.textCenter,
+              __s.marginV16,
+            ]}>
+            Skip
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };
@@ -95,7 +142,6 @@ export default Onboarding;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'blue',
   },
   circle: {
     height: 330,
@@ -122,7 +168,5 @@ const styles = StyleSheet.create({
     right: -150,
     top: -50,
   },
-  linearGradient:{
-
-  }
+  linearGradient: {},
 });

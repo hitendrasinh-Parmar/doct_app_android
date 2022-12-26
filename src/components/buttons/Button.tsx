@@ -48,4 +48,4 @@ const styles = StyleSheet.create({
   // btnBg: {
   //   backgroundColor: getColor('btnPrimary'),
   // }
-})
+});
