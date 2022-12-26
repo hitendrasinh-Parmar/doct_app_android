@@ -1,12 +1,15 @@
 import React from 'react';
 import SignIn from '../screens/auth/sign-in.screen';
-import Onboarding from '../screens/onboarding/onboarding.screen';
-import { AuthRoutes, AuthStack, OnboardingRoutes } from './routes';
+import SingUp from '../screens/auth/sign-up.screen';
+
+import { AuthRoutes, AuthStack } from './routes';
 const AuthNavigator = () => {
   return (
-    <AuthStack.Navigator screenOptions={{ headerShown: false }}>
-      <AuthStack.Screen name={OnboardingRoutes.Onboarding} component={Onboarding} />
+    <AuthStack.Navigator
+      screenOptions={{ headerShown: false }}
+      initialRouteName={AuthRoutes.SignUp}>
       <AuthStack.Screen name={AuthRoutes.SignIn} component={SignIn} />
+      <AuthStack.Screen name={AuthRoutes.SignUp} component={SingUp} />
     </AuthStack.Navigator>
   );
 };

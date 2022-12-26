@@ -2,7 +2,6 @@ import { StyleSheet, Platform, Dimensions } from 'react-native';
 import { hp, wp, normalize } from '../services/ResponsiveDesign';
 import { fontMaker } from '../services/fontMaker';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { useTheme } from '../theme/ThemeProvider';
 const WIDTH = Dimensions.get('window').width;
 
 export default StyleSheet.create({

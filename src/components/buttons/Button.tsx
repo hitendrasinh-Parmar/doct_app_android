@@ -1,34 +1,44 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { getColor } from '../../services/utils';
-import Styles from '../../styles/Styles';
-import { ThemeContext } from '../../theme/ThemeProvider';
-import useTheme from '../../theme/useTheme';
+import { TouchableOpacity, Text, StyleSheet, View, ViewStyle, TextStyle } from 'react-native';
+import useStyles from '../../styles/useStyles';
 
 interface ButtonInterface {
   text: string;
   onPress?: () => void;
-  buttonStyles?: [];
+  buttonStyles?: Array<ViewStyle>;
+  btnGroup?: boolean;
+  lastbtn?: boolean;
+  borderNone?: boolean;
+  textStyle?: Array<TextStyle>;
 }
+
 const Button = (props: ButtonInterface) => {
-  const { theme } = useTheme();
+  const {
+    text,
+    onPress,
+    buttonStyles,
+    btnGroup = false,
+    lastbtn = false,
+    borderNone = false,
+    textStyle = [],
+  } = props;
+  const __s = useStyles();
+
   return (
-    <TouchableOpacity
-      activeOpacity={0.8}
+    <View
       style={[
-        Styles.flex1,
-        Styles.paddingV10,
-        Styles.borderWidth1,
-        Styles.borderGray2,
-        !!props?.buttonStyles && props.buttonStyles,
-        {backgroundColor: theme.btnPrimary}
-      ]}
-      onPress={props.onPress}
-    >
-      <Text style={[Styles.font14, Styles.fontPoppinsRegular, Styles.fontGray, Styles.textCenter]}>
-        Button
-      </Text>
-    </TouchableOpacity>
+        __s.paddingV10,
+        !borderNone && [__s.borderWidth1, __s.borderGray2],
+        !!buttonStyles && buttonStyles,
+        btnGroup && [__s.flex1, !lastbtn && __s.marginR10],
+      ]}>
+      <TouchableOpacity {...props} activeOpacity={0.8} style={[]} onPress={onPress}>
+        <Text
+          style={[__s.font16, __s.fontPoppinsMedium, __s.fontGray, __s.textCenter, ...textStyle]}>
+          {text}
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
