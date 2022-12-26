@@ -6,8 +6,7 @@ const HomeTabsNavigator = (): React.ReactElement => {
   return (
     <TabsStack.Navigator
       initialRouteName={TabsRoutes.Profile}
-      screenOptions={{ headerShown: false }}
-    >
+      screenOptions={{ headerShown: false }}>
       <TabsStack.Screen name={TabsRoutes.Profile} component={ProfileNavigator} />
     </TabsStack.Navigator>
   );

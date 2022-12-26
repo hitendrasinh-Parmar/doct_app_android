@@ -1,31 +1,44 @@
 import React from 'react';
-import { TouchableOpacity, Text } from 'react-native';
-import useTheme from '../../theme/useTheme';
-import { themeKeys } from '../../types/global';
+import { TouchableOpacity, Text, StyleSheet, View, ViewStyle, TextStyle } from 'react-native';
+import useStyles from '../../styles/useStyles';
 
 interface ButtonInterface {
   text: string;
   onPress?: () => void;
-  buttonStyles?: [];
+  buttonStyles?: Array<ViewStyle>;
+  btnGroup?: boolean;
+  lastbtn?: boolean;
+  borderNone?: boolean;
+  textStyle?: Array<TextStyle>;
 }
+
 const Button = (props: ButtonInterface) => {
-  const style = useTheme();
+  const {
+    text,
+    onPress,
+    buttonStyles,
+    btnGroup = false,
+    lastbtn = false,
+    borderNone = false,
+    textStyle = [],
+  } = props;
+  const __s = useStyles();
+
   return (
-    <TouchableOpacity
-      activeOpacity={0.8}
+    <View
       style={[
-        style.flex1,
-        style.paddingV10,
-        style.borderWidth1,
-        style.borderGray2,
-        !!props?.buttonStyles && props.buttonStyles,
-      ]}
-      onPress={props.onPress}
-    >
-      <Text style={[style.font14, style.fontPoppinsRegular, style.fontGray, style.textCenter]}>
-        Google
-      </Text>
-    </TouchableOpacity>
+        __s.paddingV10,
+        !borderNone && [__s.borderWidth1, __s.borderGray2],
+        !!buttonStyles && buttonStyles,
+        btnGroup && [__s.flex1, !lastbtn && __s.marginR10],
+      ]}>
+      <TouchableOpacity {...props} activeOpacity={0.8} style={[]} onPress={onPress}>
+        <Text
+          style={[__s.font16, __s.fontPoppinsMedium, __s.fontGray, __s.textCenter, ...textStyle]}>
+          {text}
+        </Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
