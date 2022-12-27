@@ -1,15 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
-import ProfileNavigator from './profile.navigator';
-import { TabsRoutes, TabsStack } from './routes';
-const HomeTabsNavigator = (): React.ReactElement => {
+import { Text } from 'react-native';
+
+const HomeNavigator = () => {
+  // console.log('[HomeNavigator]');
+
   return (
-    <TabsStack.Navigator
-      initialRouteName={TabsRoutes.Profile}
-      screenOptions={{ headerShown: false }}>
-      <TabsStack.Screen name={TabsRoutes.Profile} component={ProfileNavigator} />
-    </TabsStack.Navigator>
+    <>
+      <Text>HomeNavigator</Text>
+    </>
   );
 };
 
-export default HomeTabsNavigator;
+export default HomeNavigator;

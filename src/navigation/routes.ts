@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 export enum RootRoutes {
   Auth = 'Auth',
   Main = 'Main',
+  Onboarding = 'Onboarding',
 }
 
 export enum MainRoutes {
@@ -14,8 +15,9 @@ export enum MainRoutes {
 
 export enum TabsRoutes {
   Home = 'Home',
-  Profile = 'Profile',
+  Favourite = 'Favourite',
   Blog = 'Blog',
+  Chat = 'Chat',
 }
 
 export enum AuthRoutes {
@@ -42,14 +44,18 @@ export type AuthStackParamList = {
   [AuthRoutes.SignUp]: undefined;
   [OnboardingRoutes.Onboarding]: undefined;
 };
-
+export type OnboardingStackParamList = {
+  [OnboardingRoutes.Onboarding]: undefined;
+};
 export type TabsStackParamList = {
-  [TabsRoutes.Profile]: undefined;
-  [TabsRoutes.Blog]: undefined;
   [TabsRoutes.Home]: undefined;
+  [TabsRoutes.Favourite]: undefined;
+  [TabsRoutes.Blog]: undefined;
+  [TabsRoutes.Chat]: undefined;
 };
 
 export const RootStack = createStackNavigator();
 export const MainStack = createStackNavigator<MainStackParamList>();
 export const AuthStack = createStackNavigator<AuthStackParamList>();
+export const OnboardingStack = createStackNavigator<OnboardingStackParamList>();
 export const TabsStack = createBottomTabNavigator<TabsStackParamList>();
