@@ -1,5 +1,14 @@
-import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import {
+  Dimensions,
+  Image,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
+  __spread,
+} from 'react-native';
+import React, { useEffect, useState } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import useTheme from '../../theme/useTheme';
 import Animated, {
@@ -15,6 +24,7 @@ import Styles from '../../styles/Styles';
 import { hp, wp } from '../../services/ResponsiveDesign';
 import Button from '../../components/buttons/Button';
 import useStyles from '../../styles/useStyles';
+import { ThemeContext } from '../../theme/ThemeProvider';
 const { height, width } = Dimensions.get('window');
 
 type dataType = {
@@ -42,7 +52,6 @@ const renderItem = (props: dataType) => {
   });
   return (
     <View style={[{ width, backgroundColor: 'white' }]} key={props.id}>
-      <Text>123</Text>
       <Animated.View
         style={[
           styles.greenCircle,
@@ -71,6 +80,12 @@ const renderItem = (props: dataType) => {
 const Onboarding = () => {
   const { onboarding1, onboarding2, onboarding3 } = LocalImages;
   const __s = useStyles();
+  const { width } = useWindowDimensions();
+  const [scrollIndex, setScrollIndex] = useState<number>(0);
+
+  useEffect(() => {
+    console.log('SCROLLINDEX ===>', scrollIndex);
+  }, [scrollIndex]);
 
   const data: dataType[] = [
     {
@@ -97,16 +112,17 @@ const Onboarding = () => {
   ];
   const translateX = useSharedValue(0);
   const scrollHandler = useAnimatedScrollHandler((event) => {
-    console.log('event.contentOffset.x =>', event.contentOffset.x);
+    console.log('event.contentOffset.x =>', JSON.stringify(event, null, 2));
     translateX.value = event.contentOffset.x;
   });
 
   return (
-    <View style={[styles.container]}>
+    <View style={[styles.container, __s.bgColorWhite]}>
       <Animated.ScrollView
         pagingEnabled
         horizontal
         onScroll={scrollHandler}
+        showsHorizontalScrollIndicator={false}
         scrollEventThrottle={16}>
         {data.map((item, index) => {
           return <>{renderItem({ ...item, index, translateX })}</>;
