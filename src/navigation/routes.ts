@@ -24,6 +24,10 @@ export enum AuthRoutes {
   SignUp = 'SignUp',
 }
 
+export enum OnboardingRoutes {
+  Onboarding = 'Onboarding',
+}
+
 export type RootStackParamList = {
   [RootRoutes.Auth]: NavigatorScreenParams<AuthStackParamList>;
   [RootRoutes.Main]: NavigatorScreenParams<MainStackParamList>;
@@ -37,6 +41,7 @@ export type MainStackParamList = {
 export type AuthStackParamList = {
   [AuthRoutes.SignIn]: undefined;
   [AuthRoutes.SignUp]: undefined;
+  [OnboardingRoutes.Onboarding]: undefined;
 };
 
 export type TabsStackParamList = {
