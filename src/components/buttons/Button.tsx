@@ -43,3 +43,9 @@ const Button = (props: ButtonInterface) => {
 };
 
 export default Button;
+
+const styles = StyleSheet.create({
+  // btnBg: {
+  //   backgroundColor: getColor('btnPrimary'),
+  // }
+});

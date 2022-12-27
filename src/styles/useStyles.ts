@@ -434,6 +434,9 @@ const useStyles = () => {
     paddingV24: {
       paddingVertical: hp(24),
     },
+    paddingV48: {
+      paddingVertical: hp(48),
+    },
     paddingV100: {
       paddingVertical: hp(100),
     },
