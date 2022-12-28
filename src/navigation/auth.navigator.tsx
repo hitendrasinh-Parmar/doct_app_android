@@ -8,7 +8,7 @@ const AuthNavigator = () => {
   return (
     <AuthStack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName={OnboardingRoutes.Onboarding}>
+      initialRouteName={AuthRoutes.SignIn}>
       <AuthStack.Screen name={OnboardingRoutes.Onboarding} component={Onboarding} />
       <AuthStack.Screen name={AuthRoutes.SignIn} component={SignIn} />
       <AuthStack.Screen name={AuthRoutes.SignUp} component={SingUp} />

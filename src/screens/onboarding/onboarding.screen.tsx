@@ -1,7 +1,5 @@
 import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React from 'react';
-import LinearGradient from 'react-native-linear-gradient';
-import useTheme from '../../theme/useTheme';
 import Animated, {
   Extrapolate,
   interpolate,
@@ -11,7 +9,6 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import LocalImages from '../../../assets/images/index';
-import Styles from '../../styles/Styles';
 import { hp, wp } from '../../services/ResponsiveDesign';
 import Button from '../../components/buttons/Button';
 import useStyles from '../../styles/useStyles';
@@ -26,12 +23,12 @@ type dataType = {
   translateX?: Animated.SharedValue<number>;
 };
 
-const renderItem = (props: dataType) => {
-  const { index, image, id, title, subTitle, translateX }: any = props;
+const RenderItem = (props: dataType) => {
+  const { index = 0, image, id, title, subTitle, translateX }: dataType = props;
   const __s = useStyles();
   const rStyle = useAnimatedStyle(() => {
     const scale = interpolate(
-      translateX.value,
+      translateX?.value ? translateX.value : 0,
       [(index - 1) * width, index * width, (index + 1) * width],
       [0, 1, 0],
       Extrapolate.CLAMP
@@ -109,7 +106,7 @@ const Onboarding = () => {
         onScroll={scrollHandler}
         scrollEventThrottle={16}>
         {data.map((item, index) => {
-          return <>{renderItem({ ...item, index, translateX })}</>;
+          return <>{RenderItem({ ...item, index, translateX })}</>;
         })}
       </Animated.ScrollView>
       <View style={[__s.paddingH24]}>

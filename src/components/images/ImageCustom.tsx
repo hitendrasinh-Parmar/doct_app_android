@@ -10,7 +10,6 @@ import {
   Image,
   ImageStyle,
 } from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import useStyles from '../../styles/useStyles';
 import { useTheme } from '../../theme/ThemeProvider';
 import { ColorsInterface, themeType } from '../../types/global';

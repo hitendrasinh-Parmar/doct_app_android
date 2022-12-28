@@ -6,6 +6,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   KeyboardAvoidingView,
+  ScrollView,
 } from 'react-native';
 import Button from '../../components/buttons/Button';
 import TextInput from '../../components/input/TextInput';
@@ -14,7 +15,6 @@ import useStyles from '../../styles/useStyles';
 import { useTheme } from '../../theme/ThemeProvider';
 import { ColorsInterface } from '../../types/global';
 import { AppIcons } from '../../../assets/icons';
-import { ScrollView } from 'react-native-gesture-handler';
 
 const SignIn = () => {
   const __s = useStyles();

@@ -1,6 +1,6 @@
-import { useTheme } from "../theme/ThemeProvider"
+import { useTheme } from '../theme/ThemeProvider';
 
-export const getColor = (val: string) =>{
-  const {theme} = useTheme();
-  return theme[val];
-}
+// export const getColor = (val: string) =>{
+//   const {theme} = useTheme();
+//   return theme[val];
+// }
