@@ -1,5 +1,17 @@
-import { Dimensions, Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React from 'react';
+import {
+  Dimensions,
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  useWindowDimensions,
+  View,
+  __spread,
+} from 'react-native';
+import React, { useRef } from 'react';
+import LinearGradient from 'react-native-linear-gradient';
+import useTheme from '../../theme/useTheme';
 import Animated, {
   Extrapolate,
   interpolate,
@@ -12,13 +24,14 @@ import LocalImages from '../../../assets/images/index';
 import { hp, wp } from '../../services/ResponsiveDesign';
 import Button from '../../components/buttons/Button';
 import useStyles from '../../styles/useStyles';
+import { ScrollView } from 'react-native-gesture-handler';
 const { height, width } = Dimensions.get('window');
 
 type dataType = {
   id: number;
   title: string;
   subTitle: string;
-  image: any;
+  image: ImageSourcePropType;
   index?: number;
   translateX?: Animated.SharedValue<number>;
 };
@@ -39,7 +52,6 @@ const RenderItem = (props: dataType) => {
   });
   return (
     <View style={[{ width, backgroundColor: 'white' }]} key={props.id}>
-      <Text>123</Text>
       <Animated.View
         style={[
           styles.greenCircle,
@@ -68,7 +80,7 @@ const RenderItem = (props: dataType) => {
 const Onboarding = () => {
   const { onboarding1, onboarding2, onboarding3 } = LocalImages;
   const __s = useStyles();
-
+  const scrollRef = useRef<any>();
   const data: dataType[] = [
     {
       id: 1,
@@ -94,16 +106,18 @@ const Onboarding = () => {
   ];
   const translateX = useSharedValue(0);
   const scrollHandler = useAnimatedScrollHandler((event) => {
-    console.log('event.contentOffset.x =>', event.contentOffset.x);
+    // console.log('event.contentOffset.x =>', JSON.stringify(event, null, 2));
     translateX.value = event.contentOffset.x;
   });
 
   return (
-    <View style={[styles.container]}>
+    <View style={[styles.container, __s.bgColorWhite]}>
       <Animated.ScrollView
         pagingEnabled
         horizontal
+        ref={scrollRef}
         onScroll={scrollHandler}
+        showsHorizontalScrollIndicator={false}
         scrollEventThrottle={16}>
         {data.map((item, index) => {
           return <>{RenderItem({ ...item, index, translateX })}</>;
@@ -112,11 +126,14 @@ const Onboarding = () => {
       <View style={[__s.paddingH24]}>
         <Button
           text='Get Started'
-          onPress={() => {}}
+          onPress={() => {
+            console.log(translateX.value);
+            scrollRef.current.scrollTo({ x: translateX.value + width, y: 0, animated: true });
+          }}
           buttonStyles={[__s.bgColorGreen, __s.borderRadius10]}
           textStyle={[__s.fontWhite]}
         />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => { }}>
           <Text
             style={[
               __s.font14,
