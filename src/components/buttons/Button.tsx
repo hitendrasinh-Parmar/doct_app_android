@@ -1,21 +1,27 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet, View, ViewStyle, TextStyle } from 'react-native';
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  View,
+  ViewStyle,
+  TextStyle,
+  TouchableOpacityProps,
+} from 'react-native';
 import useStyles from '../../styles/useStyles';
 
-interface ButtonInterface {
+type ButtonInterface = TouchableOpacityProps & {
   text: string;
-  onPress?: () => void;
   buttonStyles?: Array<ViewStyle>;
   btnGroup?: boolean;
   lastbtn?: boolean;
   borderNone?: boolean;
   textStyle?: Array<TextStyle>;
-}
+};
 
 const Button = (props: ButtonInterface) => {
   const {
     text,
-    onPress,
     buttonStyles,
     btnGroup = false,
     lastbtn = false,
@@ -32,7 +38,7 @@ const Button = (props: ButtonInterface) => {
         !!buttonStyles && buttonStyles,
         btnGroup && [__s.flex1, !lastbtn && __s.marginR10],
       ]}>
-      <TouchableOpacity {...props} activeOpacity={0.8} style={[]} onPress={onPress}>
+      <TouchableOpacity {...props}>
         <Text
           style={[__s.font16, __s.fontPoppinsMedium, __s.fontGray, __s.textCenter, ...textStyle]}>
           {text}

@@ -15,6 +15,8 @@ import useStyles from '../../styles/useStyles';
 import { useTheme } from '../../theme/ThemeProvider';
 import { ColorsInterface } from '../../types/global';
 import { AppIcons } from '../../../assets/icons';
+import * as RootNavigator from '../../services/RootNavigationServices';
+import { useUserState } from '../../context/user.temp.context';
 
 const SignIn = () => {
   const __s = useStyles();
@@ -22,6 +24,7 @@ const SignIn = () => {
   const [userUserPassword, setUserPassword] = useState<string>('');
   const { theme }: { theme: ColorsInterface } = useTheme();
   const userInputLoader = useLoading();
+  const { setUser, user } = useUserState();
 
   const handleEmailOnChangeText = useCallback(
     (e: string) => {
@@ -78,6 +81,10 @@ const SignIn = () => {
           </View>
           <View style={[__s.paddingV10, __s.marginH32, __s.marginT24]}>
             <Button
+              activeOpacity={1}
+              onPress={() => {
+                setUser?.({ name: "'jonh" });
+              }}
               text='Login'
               buttonStyles={[__s.bgColorGreen, __s.paddingV18, __s.borderRadius10]}
               textStyle={[__s.fontWhite]}
