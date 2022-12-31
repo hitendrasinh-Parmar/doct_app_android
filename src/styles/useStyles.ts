@@ -207,6 +207,9 @@ const useStyles = () => {
     marginL24: {
       marginLeft: wp(24),
     },
+    marginL16: {
+      marginLeft: wp(16),
+    },
     marginL10: {
       marginLeft: wp(10),
     },
@@ -542,6 +545,9 @@ const useStyles = () => {
     borderRadius10: {
       borderRadius: 10,
     },
+    borderRadius100: {
+      borderRadius: 100,
+    },
     borderRadiusT4: {
       borderTopRightRadius: 4,
       borderTopLeftRadius: 4,
@@ -549,6 +555,10 @@ const useStyles = () => {
     borderRadiusT10: {
       borderTopRightRadius: 10,
       borderTopLeftRadius: 10,
+    },
+    borderRadiusB25: {
+      borderBottomRightRadius: 25,
+      borderBottomLeftRadius: 25,
     },
     borderRadiusB4: {
       borderBottomRightRadius: 4,
@@ -569,6 +579,9 @@ const useStyles = () => {
     width170: {
       width: wp(170),
     },
+    width190: {
+      width: wp(190),
+    },
     width90: {
       width: wp(90),
     },
@@ -578,8 +591,8 @@ const useStyles = () => {
     width66: {
       width: wp(66),
     },
-    width79: {
-      width: wp(79),
+    width70: {
+      width: wp(70),
     },
     width24: {
       width: wp(24),
@@ -617,8 +630,8 @@ const useStyles = () => {
     height66: {
       height: hp(66),
     },
-    height75: {
-      height: hp(75),
+    height70: {
+      height: hp(70),
     },
     minHeight75: {
       minHeight: hp(75),

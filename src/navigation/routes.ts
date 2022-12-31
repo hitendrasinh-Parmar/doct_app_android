@@ -11,6 +11,7 @@ export enum RootRoutes {
 export enum MainRoutes {
   Tabs = 'Tabs',
   Settings = 'Settings',
+  SeeAllScreen = 'SeeAllScreen'
 }
 
 export enum TabsRoutes {
@@ -37,6 +38,7 @@ export type RootStackParamList = {
 export type MainStackParamList = {
   [MainRoutes.Tabs]: NavigatorScreenParams<TabsStackParamList>;
   [MainRoutes.Settings]: undefined;
+  [MainRoutes.SeeAllScreen]: undefined;
 };
 
 export type AuthStackParamList = {

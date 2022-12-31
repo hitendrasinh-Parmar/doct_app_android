@@ -15,7 +15,7 @@ import useStyles from '../../styles/useStyles';
 import { useTheme } from '../../theme/ThemeProvider';
 import { ColorsInterface } from '../../types/global';
 import { AppIcons } from '../../../assets/icons';
-import * as RootNavigator from '../../services/RootNavigationServices';
+// import * as RootNavigator from '../../services/RootNavigationServices';
 import { useUserState } from '../../context/user.temp.context';
 
 const SignIn = () => {
@@ -76,7 +76,7 @@ const SignIn = () => {
             />
           </View>
           <View style={[__s.flexRow, __s.marginH16, __s.marginT32]}>
-            <Button text='Google' btnGroup onPress={() => {}} />
+            <Button text='Google' btnGroup onPress={() => { }} />
             <Button text='Facebook' btnGroup lastbtn />
           </View>
           <View style={[__s.paddingV10, __s.marginH32, __s.marginT24]}>

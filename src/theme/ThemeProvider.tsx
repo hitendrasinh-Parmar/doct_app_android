@@ -1,10 +1,10 @@
-import React, { ReactNode, useContext, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { darkTheme, lightTheme } from './colors';
-import { themeType, ThemeProviderType, ColorsInterface } from '../types/global';
+import { themeType, ColorsInterface } from '../types/global';
 
 const initialState = {
   theme: lightTheme,
-  toggleTheme: () => {},
+  toggleTheme: () => { },
 };
 
 export const ThemeContext = React.createContext<themeType>(initialState);

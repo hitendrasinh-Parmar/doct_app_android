@@ -2,7 +2,7 @@ import React from 'react';
 import SignIn from '../screens/auth/sign-in.screen';
 import SingUp from '../screens/auth/sign-up.screen';
 
-import { AuthRoutes, AuthStack, OnboardingRoutes } from './routes';
+import { AuthRoutes, AuthStack } from './routes';
 const AuthNavigator = () => {
   return (
     <AuthStack.Navigator

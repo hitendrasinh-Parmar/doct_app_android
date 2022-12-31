@@ -4,16 +4,14 @@ import {
   ViewStyle,
   TextInput,
   Text,
-  StyleSheet,
   Animated,
   Easing,
-  Image,
   TextStyle,
 } from 'react-native';
 import useStyles from '../../styles/useStyles';
 import { useTheme } from '../../theme/ThemeProvider';
-import { ColorsInterface, themeType } from '../../types/global';
-import ImageCustom from '../images/ImageCustom';
+import { ColorsInterface } from '../../types/global';
+import ImageFragment from '../images/ImageFragment';
 import { AppIcons } from '../../../assets/icons';
 
 type iconPosition = 'center' | 'left' | 'right';
@@ -39,7 +37,6 @@ const TextInputCustom: React.FC<TextInputProps> = (props): JSX.Element => {
     iconPosition = 'right',
   } = props;
   const __s = useStyles();
-  const { theme }: { theme: ColorsInterface } = useTheme();
   const [isFocused, setIsFocused] = useState<boolean>(false);
   const focusAnim = useRef(new Animated.Value(0)).current;
 
@@ -117,7 +114,7 @@ const TextInputCustom: React.FC<TextInputProps> = (props): JSX.Element => {
           __s.font16,
         ]}
       />
-      {!!icon && <ImageCustom imgUrl={AppIcons?.hide_password} wrapperStyle={[__s.paddingR10]} />}
+      {!!icon && <ImageFragment imgUrl={AppIcons?.hide_password} wrapperStyle={[__s.paddingR10]} />}
     </View>
   );
 };

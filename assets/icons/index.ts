@@ -4,4 +4,5 @@ export const AppIcons: any = {
   chat: require('./chat.png'),
   heart: require('./heart.png'),
   blog: require('./blog.png'),
+  docprofile2: require('./docprofile2.png'),
 };

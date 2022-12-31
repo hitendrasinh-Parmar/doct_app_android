@@ -1,4 +1,4 @@
-import { ViewStyle, ImageStyle, TextStyle, ColorValue } from 'react-native';
+import { ViewStyle, ImageStyle, TextStyle } from 'react-native';
 import Styles from '../styles/useStyles';
 import { ReactNode } from 'react';
 
