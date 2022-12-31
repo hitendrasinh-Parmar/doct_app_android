@@ -9,8 +9,6 @@ import {
   TextStyle,
 } from 'react-native';
 import useStyles from '../../styles/useStyles';
-import { useTheme } from '../../theme/ThemeProvider';
-import { ColorsInterface } from '../../types/global';
 import ImageFragment from '../images/ImageFragment';
 import { AppIcons } from '../../../assets/icons';
 
