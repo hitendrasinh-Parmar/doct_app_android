@@ -1,16 +1,15 @@
 // import { createStackNavigator } from '@react-navigation/stack';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import AuthNavigator from './auth.navigator';
 import MainNavigator from './main.navigator';
 import OnboardingNavigator from './onboarding.navigator';
 import { RootRoutes, RootStack } from './routes';
-import { useUserState } from '../context/user.temp.context';
-
+import { useSelector } from 'react-redux';
+import rootReducer from '../redux/rootReducer';
 const isOnboardingComplete = true;
 const Root = () => {
-  const { user } = useUserState();
-
+  const user = useSelector((state) => state?.userReducer);
   return (
     <RootStack.Navigator screenOptions={{ headerShown: false }} initialRouteName={RootRoutes.Auth}>
       {user ? (

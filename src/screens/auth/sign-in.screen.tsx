@@ -16,15 +16,17 @@ import { useTheme } from '../../theme/ThemeProvider';
 import { ColorsInterface } from '../../types/global';
 import { AppIcons } from '../../../assets/icons';
 // import * as RootNavigator from '../../services/RootNavigationServices';
-import { useUserState } from '../../context/user.temp.context';
+import * as LocalStorageServices from '../../services/LocalStorageServices';
+import { setUser } from '../../redux/slices/userReducer';
+import { useDispatch } from 'react-redux';
 
 const SignIn = () => {
   const __s = useStyles();
   const [userEmail, setUserEmail] = useState<string>('');
   const [userUserPassword, setUserPassword] = useState<string>('');
   const { theme }: { theme: ColorsInterface } = useTheme();
+  const dispatch = useDispatch()
   const userInputLoader = useLoading();
-  const { setUser, user } = useUserState();
 
   const handleEmailOnChangeText = useCallback(
     (e: string) => {
@@ -83,7 +85,8 @@ const SignIn = () => {
             <Button
               activeOpacity={1}
               onPress={() => {
-                setUser?.({ name: "'jonh" });
+                LocalStorageServices.setItem('loggedinuser', { name: "'jonh" })
+                dispatch(setUser({ name: "jonh" }));
               }}
               text='Login'
               buttonStyles={[__s.bgColorGreen, __s.paddingV18, __s.borderRadius10]}

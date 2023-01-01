@@ -3,15 +3,17 @@ import { NavigationContainer } from '@react-navigation/native';
 import RootNavigator from './src/navigation/root.navigator';
 import ThemeProvider from './src/theme/ThemeProvider';
 import { navigationRef } from './src/services/RootNavigationServices';
-import { UserProvider } from './src/context/user.temp.context';
+import { Provider } from 'react-redux';
+import store from './src/redux/store';
+
 const App = () => {
   return (
     <NavigationContainer ref={navigationRef}>
-      <UserProvider>
+      <Provider store={store}>
         <ThemeProvider>
           <RootNavigator />
         </ThemeProvider>
-      </UserProvider>
+      </Provider>
     </NavigationContainer>
   );
 };
