@@ -83,7 +83,7 @@ const HomeScreen = () => {
       <View style={[__s.marginV10, __s.paddingH16]}>
         {renderPopularCardFragmentHeading()}
         <FlatList
-          data={[0, 0, 0, 0, 0]}
+          data={[0, 0, 0]}
           showsHorizontalScrollIndicator={false}
           horizontal
           renderItem={() => renderPopularCardFragment()}
